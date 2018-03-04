@@ -7,7 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D66ADB741E75D0E800470E4A /* document_parser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D66ADB721E75D0E800470E4A /* document_parser.cpp */; };
 		D67380F91E6724850085525C /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D67380F81E6724850085525C /* main.cpp */; };
+		D6B630E51F5DBE8200099022 /* libcrypto.1.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D6B630E31F5DBE8200099022 /* libcrypto.1.0.0.dylib */; };
+		D6B630E61F5DBE8200099022 /* libssl.1.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D6B630E41F5DBE8200099022 /* libssl.1.0.0.dylib */; };
+		D6B630EA1F5DBEC500099022 /* libinfegy.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D6B630E91F5DBEC500099022 /* libinfegy.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -23,8 +27,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		D66ADB721E75D0E800470E4A /* document_parser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = document_parser.cpp; sourceTree = "<group>"; };
+		D66ADB731E75D0E800470E4A /* document_parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = document_parser.h; sourceTree = "<group>"; };
 		D67380F51E6724850085525C /* document_parser */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = document_parser; sourceTree = BUILT_PRODUCTS_DIR; };
 		D67380F81E6724850085525C /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		D6B630E31F5DBE8200099022 /* libcrypto.1.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcrypto.1.0.0.dylib; path = ../../../../usr/local/Cellar/openssl/1.0.2l/lib/libcrypto.1.0.0.dylib; sourceTree = "<group>"; };
+		D6B630E41F5DBE8200099022 /* libssl.1.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libssl.1.0.0.dylib; path = ../../../../usr/local/Cellar/openssl/1.0.2l/lib/libssl.1.0.0.dylib; sourceTree = "<group>"; };
+		D6B630E91F5DBEC500099022 /* libinfegy.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libinfegy.a; path = ../libinfegy/build/libinfegy.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +41,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6B630EA1F5DBEC500099022 /* libinfegy.a in Frameworks */,
+				D6B630E51F5DBE8200099022 /* libcrypto.1.0.0.dylib in Frameworks */,
+				D6B630E61F5DBE8200099022 /* libssl.1.0.0.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -43,6 +55,7 @@
 			children = (
 				D67380F71E6724850085525C /* document_parser */,
 				D67380F61E6724850085525C /* Products */,
+				D6B630E21F5DBE8100099022 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,8 +71,20 @@
 			isa = PBXGroup;
 			children = (
 				D67380F81E6724850085525C /* main.cpp */,
+				D66ADB721E75D0E800470E4A /* document_parser.cpp */,
+				D66ADB731E75D0E800470E4A /* document_parser.h */,
 			);
 			path = document_parser;
+			sourceTree = "<group>";
+		};
+		D6B630E21F5DBE8100099022 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D6B630E91F5DBEC500099022 /* libinfegy.a */,
+				D6B630E31F5DBE8200099022 /* libcrypto.1.0.0.dylib */,
+				D6B630E41F5DBE8200099022 /* libssl.1.0.0.dylib */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -120,6 +145,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D67380F91E6724850085525C /* main.cpp in Sources */,
+				D66ADB741E75D0E800470E4A /* document_parser.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,6 +242,11 @@
 		D67380FD1E6724850085525C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				HEADER_SEARCH_PATHS = /usr/local/include;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/Cellar/openssl/1.0.2l/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -223,6 +254,11 @@
 		D67380FE1E6724850085525C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				HEADER_SEARCH_PATHS = /usr/local/include;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/Cellar/openssl/1.0.2l/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -246,6 +282,7 @@
 				D67380FE1E6724850085525C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
